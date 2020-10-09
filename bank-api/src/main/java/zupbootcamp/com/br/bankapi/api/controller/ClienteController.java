@@ -58,11 +58,12 @@ public class ClienteController {
 
 	@PutMapping("/{id}")
 	public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Cliente cliente) {
-		Optional<Cliente> clienteAtual = clienteRepository.findById(id);
-
+		
 		try {
+			Optional<Cliente> clienteAtual = clienteRepository.findById(id);
+			
 			if (clienteAtual.isPresent()) {
-				BeanUtils.copyProperties(cliente, clienteAtual, "id");
+				BeanUtils.copyProperties(cliente, clienteAtual.get(), "id", "dataNascimento");
 				Cliente clienteAtualizado = cadastroCliente.save(clienteAtual.get());
 
 				return ResponseEntity.ok(clienteAtualizado);
