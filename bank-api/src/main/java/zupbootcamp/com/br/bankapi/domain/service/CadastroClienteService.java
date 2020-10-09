@@ -3,12 +3,14 @@ package zupbootcamp.com.br.bankapi.domain.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.stereotype.Service;
 
 import zupbootcamp.com.br.bankapi.domain.exception.EntidadeEmUsoException;
 import zupbootcamp.com.br.bankapi.domain.exception.EntidadeNaoEncontradaException;
 import zupbootcamp.com.br.bankapi.domain.model.Cliente;
 import zupbootcamp.com.br.bankapi.domain.repository.ClienteRepository;
 
+@Service
 public class CadastroClienteService {
 
 	@Autowired
