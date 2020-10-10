@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -36,6 +38,10 @@ public class Cliente {
 
 	@Column(nullable = false)
 	private String cpf;
+	
+	@OneToOne
+    @JoinColumn(name = "endereco_id")
+    private Endereco endereco;
 
 	@Column(nullable = false)
 	private LocalDate dataNascimento;
